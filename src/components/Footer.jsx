@@ -2,29 +2,29 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-100 mt-10 p-6 text-center">
-      <div className="flex flex-col md:flex-row justify-between max-w-6xl mx-auto">
+    <footer className="bg-gray-50 border-t mt-10">
+      <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <h3 className="font-bold">Information</h3>
-          <p>About Us</p>
-          <p>Privacy Policy</p>
-          <p>Terms & Conditions</p>
+          <div className="font-semibold">ShopTest</div>
+          <div className="text-sm text-gray-600 mt-2">Free-forever product listing demo.</div>
         </div>
         <div>
-          <h3 className="font-bold">Follow Us</h3>
-          <p>Facebook</p>
-          <p>Instagram</p>
-          <p>Twitter</p>
+          <div className="font-semibold">Company</div>
+          <ul className="mt-2 text-sm text-gray-600 space-y-1">
+            <li>About</li>
+            <li>Careers</li>
+            <li>Contact</li>
+          </ul>
         </div>
         <div>
-          <h3 className="font-bold">Contact Us</h3>
-          <p>Email: support@ecomm.com</p>
-          <p>Phone: +91 9876543210</p>
+          <div className="font-semibold">Support</div>
+          <ul className="mt-2 text-sm text-gray-600 space-y-1">
+            <li>Help Center</li>
+            <li>Privacy</li>
+            <li>Terms</li>
+          </ul>
         </div>
       </div>
-      <p className="text-sm text-gray-600 mt-4">
-        © 2025 E-Comm. All rights reserved.
-      </p>
     </footer>
   );
 }

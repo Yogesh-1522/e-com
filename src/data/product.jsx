@@ -1,61 +1,342 @@
-import React from "react";
-import ProductCard from "../components/ProductCard";
-
+// human-style mock dataset (24 items)
 const products = [
+  // id 1..24 - mix categories/colors/popularity
   {
     id: 1,
     name: "Nike Air Max 270 React",
-    price: "$299.43",
-    oldPrice: "$534.33",
-    image: "https://via.placeholder.com/200",
-    badge: "HOT",
+    price: 5999,
+    discountPrice: 4499,
+    discountPercent: 25,
+    ratingValue: 4.5,
+    ratingCount: 214,
+    isHot: true,
+    colors: ["#000000", "#ef4444", "#60a5fa"],
+    category: "Nike",
+    popularity: 98,
+    imageUrl: "https://picsum.photos/seed/1/600/600"
   },
   {
     id: 2,
-    name: "Adidas Men Running Sneakers",
-    price: "$199.99",
-    oldPrice: "$299.99",
-    image: "https://via.placeholder.com/200",
-    badge: "NEW",
+    name: "Adidas Ultraboost 21",
+    price: 12999,
+    discountPrice: 10499,
+    discountPercent: 19,
+    ratingValue: 4.8,
+    ratingCount: 540,
+    isHot: false,
+    colors: ["#111827", "#f59e0b"],
+    category: "Adidas",
+    popularity: 120,
+    imageUrl: "https://picsum.photos/seed/2/600/600"
   },
   {
     id: 3,
-    name: "Puma RS-X Bold Shoes",
-    price: "$150.00",
-    oldPrice: "$250.00",
-    image: "https://via.placeholder.com/200",
-    badge: "HOT",
+    name: "Vans Old Skool",
+    price: 3499,
+    discountPrice: 2799,
+    discountPercent: 20,
+    ratingValue: 4.1,
+    ratingCount: 89,
+    isHot: false,
+    colors: ["#000000","#ffffff","#60a5fa"],
+    category: "Vans",
+    popularity: 74,
+    imageUrl: "https://picsum.photos/seed/3/600/600"
   },
   {
     id: 4,
-    name: "Reebok Classic Leather",
-    price: "$120.00",
-    oldPrice: "$200.00",
-    image: "https://via.placeholder.com/200",
+    name: "Converse All Star",
+    price: 2499,
+    discountPrice: 1999,
+    discountPercent: 20,
+    ratingValue: 4.0,
+    ratingCount: 112,
+    isHot: false,
+    colors: ["#000000","#ef4444","#f59e0b"],
+    category: "Converse",
+    popularity: 68,
+    imageUrl: "https://picsum.photos/seed/4/600/600"
   },
+  {
+    id: 5,
+    name: "Puma Future Rider",
+    price: 4299,
+    discountPrice: 3499,
+    discountPercent: 18,
+    ratingValue: 4.3,
+    ratingCount: 95,
+    isHot: true,
+    colors: ["#34d399","#a78bfa"],
+    category: "Puma",
+    popularity: 82,
+    imageUrl: "https://picsum.photos/seed/5/600/600"
+  },
+  {
+    id: 6,
+    name: "New Balance 574",
+    price: 4599,
+    discountPrice: 3799,
+    discountPercent: 17,
+    ratingValue: 4.2,
+    ratingCount: 67,
+    isHot: false,
+    colors: ["#60a5fa","#ef4444"],
+    category: "New Balance",
+    popularity: 73,
+    imageUrl: "https://picsum.photos/seed/6/600/600"
+  },
+  {
+    id: 7,
+    name: "Reebok Classic",
+    price: 3999,
+    discountPrice: 2999,
+    discountPercent: 25,
+    ratingValue: 4.0,
+    ratingCount: 54,
+    isHot: false,
+    colors: ["#111827","#34d399"],
+    category: "Reebok",
+    popularity: 60,
+    imageUrl: "https://picsum.photos/seed/7/600/600"
+  },
+  {
+    id: 8,
+    name: "Asics Gel-Kayano",
+    price: 8999,
+    discountPrice: 7499,
+    discountPercent: 17,
+    ratingValue: 4.6,
+    ratingCount: 232,
+    isHot: true,
+    colors: ["#ef4444","#60a5fa"],
+    category: "Asics",
+    popularity: 88,
+    imageUrl: "https://picsum.photos/seed/8/600/600"
+  },
+  {
+    id: 9,
+    name: "Brooks Ghost 13",
+    price: 7999,
+    discountPrice: 6399,
+    discountPercent: 20,
+    ratingValue: 4.4,
+    ratingCount: 143,
+    isHot: false,
+    colors: ["#34d399","#111827"],
+    category: "Brooks",
+    popularity: 70,
+    imageUrl: "https://picsum.photos/seed/9/600/600"
+  },
+  {
+    id: 10,
+    name: "Hoka Clifton 7",
+    price: 11999,
+    discountPrice: 9999,
+    discountPercent: 17,
+    ratingValue: 4.7,
+    ratingCount: 330,
+    isHot: true,
+    colors: ["#60a5fa","#f59e0b"],
+    category: "Hoka",
+    popularity: 110,
+    imageUrl: "https://picsum.photos/seed/10/600/600"
+  },
+  {
+    id: 11,
+    name: "Under Armour Charged",
+    price: 6499,
+    discountPrice: 5199,
+    discountPercent: 20,
+    ratingValue: 4.2,
+    ratingCount: 85,
+    isHot: false,
+    colors: ["#000000","#f97316"],
+    category: "Under Armour",
+    popularity: 66,
+    imageUrl: "https://picsum.photos/seed/11/600/600"
+  },
+  {
+    id: 12,
+    name: "On Cloudflow",
+    price: 9999,
+    discountPrice: 7999,
+    discountPercent: 20,
+    ratingValue: 4.5,
+    ratingCount: 129,
+    isHot: false,
+    colors: ["#34d399","#a78bfa"],
+    category: "On",
+    popularity: 78,
+    imageUrl: "https://picsum.photos/seed/12/600/600"
+  },
+  {
+    id: 13,
+    name: "Salomon Speedcross",
+    price: 8499,
+    discountPrice: 6899,
+    discountPercent: 19,
+    ratingValue: 4.3,
+    ratingCount: 90,
+    isHot: false,
+    colors: ["#ef4444","#111827"],
+    category: "Salomon",
+    popularity: 75,
+    imageUrl: "https://picsum.photos/seed/13/600/600"
+  },
+  {
+    id: 14,
+    name: "Mizuno Wave Rider",
+    price: 7599,
+    discountPrice: 5999,
+    discountPercent: 21,
+    ratingValue: 4.2,
+    ratingCount: 92,
+    isHot: false,
+    colors: ["#60a5fa","#34d399"],
+    category: "Mizuno",
+    popularity: 64,
+    imageUrl: "https://picsum.photos/seed/14/600/600"
+  },
+  {
+    id: 15,
+    name: "K-Swiss Classic VN",
+    price: 3299,
+    discountPrice: 2699,
+    discountPercent: 18,
+    ratingValue: 3.9,
+    ratingCount: 36,
+    isHot: false,
+    colors: ["#000000","#ffffff"],
+    category: "K-Swiss",
+    popularity: 40,
+    imageUrl: "https://picsum.photos/seed/15/600/600"
+  },
+  {
+    id: 16,
+    name: "Cole Haan GrandPro",
+    price: 6999,
+    discountPrice: 5499,
+    discountPercent: 21,
+    ratingValue: 4.1,
+    ratingCount: 47,
+    isHot: false,
+    colors: ["#ef4444","#f59e0b"],
+    category: "Cole Haan",
+    popularity: 52,
+    imageUrl: "https://picsum.photos/seed/16/600/600"
+  },
+  {
+    id: 17,
+    name: "Skechers GOwalk",
+    price: 2999,
+    discountPrice: 2399,
+    discountPercent: 20,
+    ratingValue: 3.8,
+    ratingCount: 74,
+    isHot: false,
+    colors: ["#34d399","#60a5fa"],
+    category: "Skechers",
+    popularity: 55,
+    imageUrl: "https://picsum.photos/seed/17/600/600"
+  },
+  {
+    id: 18,
+    name: "FILA Disruptor 2",
+    price: 3999,
+    discountPrice: 3199,
+    discountPercent: 20,
+    ratingValue: 4.0,
+    ratingCount: 61,
+    isHot: false,
+    colors: ["#111827","#ef4444"],
+    category: "FILA",
+    popularity: 48,
+    imageUrl: "https://picsum.photos/seed/18/600/600"
+  },
+  {
+    id: 19,
+    name: "Timberland Classic",
+    price: 8999,
+    discountPrice: 7499,
+    discountPercent: 17,
+    ratingValue: 4.4,
+    ratingCount: 126,
+    isHot: false,
+    colors: ["#f59e0b","#000000"],
+    category: "Timberland",
+    popularity: 85,
+    imageUrl: "https://picsum.photos/seed/19/600/600"
+  },
+  {
+    id: 20,
+    name: "Dr. Martens 1461",
+    price: 9999,
+    discountPrice: 7999,
+    discountPercent: 20,
+    ratingValue: 4.2,
+    ratingCount: 108,
+    isHot: true,
+    colors: ["#000000","#ef4444"],
+    category: "Dr. Martens",
+    popularity: 92,
+    imageUrl: "https://picsum.photos/seed/20/600/600"
+  },
+  {
+    id: 21,
+    name: "ECCO Soft 7",
+    price: 6799,
+    discountPrice: 5399,
+    discountPercent: 20,
+    ratingValue: 4.1,
+    ratingCount: 39,
+    isHot: false,
+    colors: ["#34d399","#60a5fa"],
+    category: "ECCO",
+    popularity: 50,
+    imageUrl: "https://picsum.photos/seed/21/600/600"
+  },
+  {
+    id: 22,
+    name: "TOMS Alpargata",
+    price: 2499,
+    discountPrice: 1999,
+    discountPercent: 20,
+    ratingValue: 3.9,
+    ratingCount: 21,
+    isHot: false,
+    colors: ["#ffffff","#111827"],
+    category: "TOMS",
+    popularity: 34,
+    imageUrl: "https://picsum.photos/seed/22/600/600"
+  },
+  {
+    id: 23,
+    name: "Clarks Desert Boot",
+    price: 7999,
+    discountPrice: 6399,
+    discountPercent: 20,
+    ratingValue: 4.3,
+    ratingCount: 55,
+    isHot: false,
+    colors: ["#f59e0b","#ef4444"],
+    category: "Clarks",
+    popularity: 58,
+    imageUrl: "https://picsum.photos/seed/23/600/600"
+  },
+  {
+    id: 24,
+    name: "Sperry Top-Sider",
+    price: 4299,
+    discountPrice: 3499,
+    discountPercent: 19,
+    ratingValue: 4.0,
+    ratingCount: 32,
+    isHot: false,
+    colors: ["#60a5fa","#ffffff"],
+    category: "Sperry",
+    popularity: 44,
+    imageUrl: "https://picsum.photos/seed/24/600/600"
+  }
 ];
 
-export default function ProductList() {
-  return (
-    <main className="flex-1 p-6">
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center mt-6 gap-2">
-        {[1, 2, 3, 4, 5].map((num) => (
-          <button
-            key={num}
-            className="px-3 py-1 border rounded hover:bg-blue-500 hover:text-white"
-          >
-            {num}
-          </button>
-        ))}
-      </div>
-    </main>
-  );
-}
+export default products;
