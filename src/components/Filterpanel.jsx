@@ -1,12 +1,6 @@
 import React from "react";
 
-/*
-  Color selector + quick active color preview.
-  Props:
-    colors: array of hex strings
-    active: currently selected color (hex or null)
-    onSelect: function(hex|null)
-*/
+
 export default function FilterPanel({ colors = [], active, onSelect }) {
   return (
     <div className="bg-white border rounded p-3">

@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import productsData from "./data/product";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import FilterPanel from "./components/FilterPanel";
+import FilterPanel from "./components/Filterpanel.jsx";
 import ProductCard from "./components/ProductCard";
 import Pagination from "./components/Pagination";
 import Footer from "./components/Footer";
